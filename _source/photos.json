@@ -1,0 +1,98 @@
+{
+"artisan-etancheite-toiture": {
+"l": 1499,
+"h": 2176
+},
+"artisan-peinture-facade": {
+"l": 1072,
+"h": 1009
+},
+"bandeau-gouttiere-aluminium": {
+"l": 1170,
+"h": 1512
+},
+"chantier-facade-echafaudage": {
+"l": 1170,
+"h": 1266
+},
+"couvreur-nimes-occitan-renov": {
+"l": 1460,
+"h": 1853
+},
+"demoussage-tuiles-avant-apres": {
+"l": 1600,
+"h": 1600
+},
+"etancheite-toit-terrasse": {
+"l": 600,
+"h": 450
+},
+"facade-maison-avant-apres": {
+"l": 1600,
+"h": 2000
+},
+"facade-maison-gard": {
+"l": 1023,
+"h": 918
+},
+"faitage-avant-apres": {
+"l": 1600,
+"h": 1600
+},
+"faitage-avant-apres-2": {
+"l": 1600,
+"h": 1600
+},
+"faitage-reparation-mortier": {
+"l": 1536,
+"h": 2048
+},
+"gouttiere-aluminium-cuivre": {
+"l": 555,
+"h": 555
+},
+"gouttiere-aluminium-noire": {
+"l": 900,
+"h": 1200
+},
+"nettoyage-toiture-haute-pression": {
+"l": 1536,
+"h": 2048
+},
+"nettoyage-tuiles-avant-apres": {
+"l": 586,
+"h": 596
+},
+"occitan-renov-chantier-termine": {
+"l": 1170,
+"h": 1248
+},
+"panneaux-solaires-toiture": {
+"l": 1280,
+"h": 787
+},
+"peinture-facade-avant-apres": {
+"l": 936,
+"h": 1022
+},
+"remplacement-tuiles-couvreur-gard": {
+"l": 1536,
+"h": 2048
+},
+"renovation-facade-avant-apres": {
+"l": 800,
+"h": 800
+},
+"reparation-tuiles-toiture-nimes": {
+"l": 1600,
+"h": 1200
+},
+"revetement-anti-chaleur-cool-roof": {
+"l": 1600,
+"h": 1200
+},
+"rives-toiture-avant-apres": {
+"l": 1600,
+"h": 1343
+}
+}

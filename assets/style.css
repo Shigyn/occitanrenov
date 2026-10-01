@@ -1,0 +1,495 @@
+/* ===================================================================
+   Occitan Rénov — feuille de style (LocWeb, 2026-10-02)
+   D'apres la maquette fournie par l'artisan : bleu nuit, orange
+   chantier, cartes photo. Typo : Barlow Condensed pour les titres
+   (proche des lettres de son logo), Barlow pour le texte.
+   =================================================================== */
+:root {
+  --marine: #0f2740;
+  --marine-2: #0a1b2e;
+  --marine-3: #17385a;
+  --orange: #ef6b1c;
+  --orange-f: #d3560d;
+  --orange-pale: #fff1e7;
+  --encre: #15212f;
+  --gris: #5a6878;
+  --gris-clair: #8a97a6;
+  --fond: #f3f5f8;
+  --trait: #e2e7ed;
+  --blanc: #fff;
+  --titre: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  --texte: 'Barlow', system-ui, sans-serif;
+  --rayon: 14px;
+  --ombre: 0 10px 30px rgba(15, 39, 64, .10);
+  --ombre-forte: 0 22px 50px rgba(15, 39, 64, .18);
+  --cadre: 1200px;
+  --entete: 82px;
+}
+
+*, *::before, *::after { box-sizing: border-box }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--entete) + 12px) }
+body {
+  margin: 0; background: var(--blanc); color: var(--encre);
+  font-family: var(--texte); font-size: 17px; line-height: 1.6;
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+}
+img { max-width: 100%; height: auto; display: block }
+a { color: inherit }
+h1, h2, h3 { font-family: var(--titre); font-weight: 700; line-height: 1.08; margin: 0 0 .5em; text-wrap: balance; letter-spacing: .005em }
+h1 { font-size: clamp(36px, 5.2vw, 60px) }
+h2 { font-size: clamp(30px, 3.6vw, 42px) }
+h3 { font-size: 23px }
+p { margin: 0 0 1em }
+em { font-style: normal; color: var(--orange) }
+svg { width: 1em; height: 1em; fill: currentColor; flex: none }
+:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px }
+
+.cadre { width: min(100% - 40px, var(--cadre)); margin-inline: auto }
+.etroit { width: min(100% - 40px, 820px) }
+.centre { text-align: center }
+.section { padding: clamp(64px, 8vw, 104px) 0 }
+.section-claire { background: var(--fond) }
+.section-marine { background: var(--marine); color: var(--blanc) }
+.surtitre {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--texte); font-weight: 700; font-size: 13px; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--orange); margin-bottom: 14px;
+}
+.surtitre .ic { width: 28px; height: 28px; font-size: 15px }
+
+.evitement { position: absolute; left: -999px; top: 0; background: var(--orange); color: #fff; padding: 10px 16px; z-index: 100 }
+.evitement:focus { left: 10px; top: 10px }
+
+/* ---------------- boutons ---------------- */
+.bouton {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 52px; padding: 0 24px; border-radius: 10px; border: 2px solid transparent;
+  font-family: var(--texte); font-weight: 700; font-size: 16px; text-decoration: none; cursor: pointer;
+  transition: transform .2s ease, background-color .2s ease, box-shadow .2s ease, color .2s ease;
+}
+.bouton svg { font-size: 18px }
+.bouton:hover { transform: translateY(-2px) }
+.bouton-orange { background: var(--orange); color: #fff; box-shadow: 0 8px 22px rgba(239, 107, 28, .32) }
+.bouton-orange:hover { background: var(--orange-f) }
+.bouton-blanc { background: #fff; color: var(--marine) }
+.bouton-contour { border-color: var(--marine); color: var(--marine); background: transparent }
+.bouton-contour:hover { background: var(--marine); color: #fff }
+.lien-fleche {
+  display: inline-flex; align-items: center; gap: 8px; color: var(--orange);
+  font-weight: 700; text-decoration: none; font-size: 15px;
+}
+.lien-fleche svg { transition: transform .2s ease }
+.lien-fleche:hover svg { transform: translateX(4px) }
+
+.ic {
+  display: inline-grid; place-items: center; width: 44px; height: 44px; flex: none;
+  border-radius: 50%; background: var(--orange-pale); color: var(--orange); font-size: 21px;
+}
+
+/* ---------------- en-tete ---------------- */
+.entete {
+  position: sticky; top: 0; z-index: 50; background: rgba(255, 255, 255, .97);
+  backdrop-filter: saturate(160%) blur(10px); border-bottom: 1px solid transparent;
+  transition: box-shadow .25s ease, border-color .25s ease;
+}
+.entete[data-ombre] { box-shadow: 0 6px 24px rgba(15, 39, 64, .08); border-color: var(--trait) }
+.entete-in { width: min(100% - 40px, 1280px); margin-inline: auto; height: var(--entete); display: flex; align-items: center; gap: 28px }
+.marque { display: flex; align-items: center; gap: 10px; text-decoration: none; flex: none }
+.marque img { width: 58px; height: auto }
+.marque b { display: block; font-family: var(--titre); font-size: 27px; line-height: 1; color: var(--marine); letter-spacing: .01em }
+.marque b em { color: var(--orange) }
+.marque small { display: block; font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--gris); margin-top: 3px }
+.marque-claire b { color: #fff }
+.marque-claire small { color: rgba(255, 255, 255, .6) }
+
+.nav { display: flex; align-items: center; gap: 4px; margin-left: auto }
+.nav > a, .nav-deroule > a {
+  display: block; padding: 10px 12px; text-decoration: none; font-weight: 600; font-size: 15.5px;
+  color: var(--encre); border-radius: 8px; position: relative;
+}
+.nav a[aria-current="page"]::after {
+  content: ''; position: absolute; left: 12px; right: 12px; bottom: 3px; height: 2px; background: var(--orange);
+}
+.nav > a:hover, .nav-deroule > a:hover { color: var(--orange) }
+.nav-deroule { position: relative }
+.nav-sous {
+  position: absolute; top: 100%; left: -12px; min-width: 290px; padding: 10px;
+  background: #fff; border: 1px solid var(--trait); border-radius: 12px; box-shadow: var(--ombre-forte);
+  opacity: 0; visibility: hidden; transform: translateY(8px); transition: opacity .2s ease, transform .2s ease, visibility .2s;
+}
+.nav-deroule:hover .nav-sous, .nav-deroule:focus-within .nav-sous { opacity: 1; visibility: visible; transform: none }
+.nav-sous a { display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 9px; text-decoration: none; font-weight: 600; font-size: 15px }
+.nav-sous a:hover { background: var(--fond); color: var(--orange) }
+.nav-sous .ic { width: 34px; height: 34px; font-size: 16px }
+
+.entete-tel { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--marine) }
+.entete-tel > svg { font-size: 24px; color: var(--orange) }
+.entete-tel b { display: block; font-family: var(--titre); font-size: 24px; line-height: 1; letter-spacing: .01em }
+.entete-tel small { display: block; font-size: 12px; color: var(--gris) }
+.entete-cta { min-height: 46px; padding: 0 18px; font-size: 15px }
+
+.burger { display: none; margin-left: auto; width: 46px; height: 46px; border: 0; background: var(--fond); border-radius: 10px; cursor: pointer; padding: 0; place-content: center; gap: 5px }
+.burger span { display: block; width: 22px; height: 2px; background: var(--marine); transition: transform .25s ease, opacity .25s ease }
+.burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg) }
+.burger[aria-expanded="true"] span:nth-child(2) { opacity: 0 }
+.burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg) }
+.menu-mobile { border-top: 1px solid var(--trait); padding: 14px 20px 22px; display: grid; gap: 2px; max-height: calc(100vh - var(--entete)); overflow-y: auto }
+.menu-mobile[hidden] { display: none }
+.menu-mobile > a { padding: 12px 4px; text-decoration: none; font-weight: 600; font-size: 18px; border-bottom: 1px solid var(--trait) }
+.menu-mobile .bouton { margin-top: 14px; border: 0; color: #fff }
+.menu-mobile-services { display: grid; gap: 2px; padding: 4px 0 8px 10px }
+.menu-mobile-services a { display: flex; align-items: center; gap: 10px; padding: 7px 0; text-decoration: none; color: var(--gris); font-weight: 500 }
+.menu-mobile-services .ic { width: 30px; height: 30px; font-size: 14px }
+
+/* ---------------- fil d'ariane ---------------- */
+.ariane { background: var(--marine); color: rgba(255, 255, 255, .65); font-size: 14px }
+.ariane .cadre { display: flex; flex-wrap: wrap; gap: 6px; padding: 12px 0 0 }
+.ariane a { color: rgba(255, 255, 255, .8); text-decoration: none }
+.ariane a:hover { color: #fff }
+.ariane a::after { content: '›'; margin-left: 6px; color: rgba(255, 255, 255, .4) }
+.ariane span { color: #fff }
+
+/* ---------------- hero ---------------- */
+/* Comme sur la maquette : le texte a gauche sur le bleu nuit, l'artisan
+   a droite. La photo de dos porte son nom et son numero : c'est
+   l'image la plus forte du site, elle ne doit pas finir sous le texte. */
+.hero { position: relative; min-height: min(80vh, 720px); display: flex; align-items: center; overflow: hidden; color: #fff; isolation: isolate; background: var(--marine-2) }
+.hero-fond { position: absolute; top: 0; bottom: 0; right: 0; width: 62%; z-index: -2; overflow: hidden }
+.hero-fond img { width: 100%; height: 118%; object-fit: cover; object-position: 50% 22%; animation: zoom-lent 14s ease-out both }
+.hero::before {
+  content: ''; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(90deg, var(--marine-2) 0%, var(--marine-2) 42%, rgba(10, 27, 46, .55) 54%, rgba(10, 27, 46, 0) 72%),
+              linear-gradient(0deg, rgba(10, 27, 46, .55) 0%, rgba(10, 27, 46, 0) 30%);
+}
+.hero-in { padding: 80px 0 130px }
+.hero h1 { font-size: clamp(40px, 4.8vw, 62px); max-width: 18ch; margin-bottom: 18px }
+.hero .surtitre { color: #ffb37f }
+.hero-liste { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; font-weight: 500; font-size: 18px; color: rgba(255, 255, 255, .9); margin-bottom: 26px }
+.hero-liste i { width: 5px; height: 5px; border-radius: 50%; background: var(--orange) }
+.hero-promesse { display: flex; align-items: center; gap: 12px; font-size: 18px; margin-bottom: 30px }
+.hero-promesse > svg { width: 38px; height: 38px; padding: 9px; border-radius: 50%; background: var(--orange); color: #fff }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 14px }
+.hero-signature {
+  position: absolute; right: clamp(20px, 6vw, 90px); bottom: 110px; margin: 0;
+  font-family: 'Segoe Script', 'Brush Script MT', cursive; font-size: clamp(22px, 2.2vw, 30px);
+  line-height: 1.15; color: #fff; transform: rotate(-6deg); text-shadow: 0 2px 14px rgba(0, 0, 0, .45);
+}
+.hero-signature span { display: block; font-size: .72em; color: #ffd2b0 }
+
+@keyframes zoom-lent { from { transform: scale(1.08) } to { transform: scale(1) } }
+.hero-anim { opacity: 0; transform: translateY(18px); animation: monte .8s cubic-bezier(.2, .7, .2, 1) forwards }
+.hero-anim:nth-child(2) { animation-delay: .1s }
+.hero-anim:nth-child(3) { animation-delay: .2s }
+.hero-anim:nth-child(4) { animation-delay: .3s }
+.hero-anim:nth-child(5) { animation-delay: .4s }
+@keyframes monte { to { opacity: 1; transform: none } }
+
+/* ---------------- bandeau de reassurance ---------------- */
+.reassurance {
+  position: relative; z-index: 2; margin-top: -58px; background: #fff; border-radius: var(--rayon);
+  box-shadow: var(--ombre-forte); display: grid; grid-template-columns: repeat(4, 1fr);
+}
+.reassurance > div { display: flex; align-items: center; gap: 14px; padding: 22px 22px }
+.reassurance > div + div { border-left: 1px solid var(--trait) }
+.reassurance p { margin: 0; line-height: 1.3 }
+.reassurance b { display: block; font-size: 16px; color: var(--marine) }
+.reassurance span { font-size: 14px; color: var(--gris) }
+.tete-service + .cadre .reassurance { margin-top: -40px }
+
+/* ---------------- titres de section ---------------- */
+.tete-section { display: flex; align-items: end; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-bottom: 34px }
+.tete-section h2 { margin: 0; max-width: 24ch }
+.tete-centree { justify-content: center; text-align: center; flex-direction: column; align-items: center }
+
+/* ---------------- cartes service ---------------- */
+.grille-services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px }
+.carte-service, .carte-article {
+  display: flex; flex-direction: column; background: #fff; border: 1px solid var(--trait);
+  border-radius: var(--rayon); overflow: hidden; text-decoration: none; box-shadow: var(--ombre);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.carte-service:hover, .carte-article:hover { transform: translateY(-6px); box-shadow: var(--ombre-forte) }
+.carte-photo { display: block; aspect-ratio: 4 / 3; overflow: hidden; background: var(--fond) }
+.carte-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease }
+.carte-service:hover .carte-photo img, .carte-article:hover .carte-photo img { transform: scale(1.06) }
+.carte-corps { position: relative; display: flex; flex-direction: column; gap: 6px; padding: 30px 24px 24px; flex: 1 }
+.carte-corps .ic { position: absolute; top: -24px; left: 24px; width: 48px; height: 48px; background: #fff; box-shadow: var(--ombre) }
+.carte-corps b { font-family: var(--titre); font-size: 25px; color: var(--marine); line-height: 1.1 }
+.carte-corps > span:not(.lien-fleche):not(.ic) { color: var(--gris); font-size: 15.5px; line-height: 1.5 }
+.carte-corps .lien-fleche { margin-top: auto; padding-top: 10px }
+.carte-corps time { font-size: 13px; color: var(--gris-clair); font-weight: 600; text-transform: uppercase; letter-spacing: .08em }
+
+/* ---------------- presentation ---------------- */
+.presentation { display: grid; grid-template-columns: 5fr 6fr; gap: clamp(36px, 6vw, 80px); align-items: center }
+.presentation-photo { position: relative; margin: 0 }
+.presentation-photo img { border-radius: var(--rayon); aspect-ratio: 4 / 5; object-fit: cover; width: 100%; box-shadow: var(--ombre-forte) }
+.presentation-photo figcaption {
+  position: absolute; right: -18px; bottom: 34px; background: var(--orange); color: #fff;
+  padding: 18px 22px; border-radius: 12px; box-shadow: var(--ombre-forte); line-height: 1.1;
+}
+.presentation-photo figcaption small { display: block; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; opacity: .85 }
+.presentation-photo figcaption b { display: block; font-family: var(--titre); font-size: 44px }
+.presentation-photo figcaption span { font-size: 14px; font-weight: 600 }
+.presentation-texte p { color: var(--gris) }
+.presentation-texte p.surtitre, .coolroof-texte p.surtitre { color: var(--orange) }
+.liste-coche { list-style: none; padding: 0; margin: 0 0 1.4em; display: grid; gap: 10px }
+.liste-coche li { position: relative; padding-left: 32px }
+.liste-coche li::before {
+  content: ''; position: absolute; left: 0; top: .2em; width: 20px; height: 20px; border-radius: 50%;
+  background: var(--orange) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='m9.5 16.2-4-4 1.4-1.4 2.6 2.6 6.6-6.6 1.4 1.4z'/%3E%3C/svg%3E") center / 15px no-repeat;
+}
+
+/* ---------------- carrousel des realisations ---------------- */
+.carrousel { position: relative }
+.carrousel-piste {
+  display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 3 * 20px) / 4); gap: 20px;
+  overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; padding: 4px 2px 10px;
+}
+.carrousel-piste::-webkit-scrollbar { display: none }
+.realisation { margin: 0; scroll-snap-align: start }
+.realisation-photo { position: relative; display: block; aspect-ratio: 1; overflow: hidden; border-radius: 12px; background: var(--fond) }
+.realisation-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease }
+.realisation:hover .realisation-photo img { transform: scale(1.05) }
+.pastille {
+  position: absolute; left: 12px; top: 12px; background: rgba(10, 27, 46, .82); color: #fff;
+  font-size: 11.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 5px 10px; border-radius: 6px;
+}
+.realisation figcaption { padding: 12px 2px 0; line-height: 1.3 }
+.realisation figcaption b { display: block; color: var(--marine) }
+.realisation figcaption span { font-size: 14px; color: var(--gris) }
+.carrousel-fl {
+  position: absolute; top: calc(50% - 40px); z-index: 2; width: 46px; height: 46px; border-radius: 50%;
+  border: 0; background: #fff; color: var(--marine); box-shadow: var(--ombre-forte); cursor: pointer;
+  display: grid; place-items: center; font-size: 20px; right: -14px; transition: background-color .2s ease, color .2s ease;
+}
+.carrousel-fl:hover { background: var(--orange); color: #fff }
+.carrousel-prec { left: -14px; right: auto }
+.carrousel-prec svg { transform: rotate(180deg) }
+.carrousel-fl[disabled] { opacity: 0; pointer-events: none }
+
+.grille-realisations { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px 24px }
+
+/* ---------------- etapes ---------------- */
+.etapes { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; counter-reset: e }
+.etapes li {
+  counter-increment: e; position: relative; padding: 30px 24px 26px; border-radius: var(--rayon);
+  background: rgba(255, 255, 255, .05); border: 1px solid rgba(255, 255, 255, .12);
+}
+.etapes li::before {
+  content: counter(e, decimal-leading-zero); display: block; font-family: var(--titre); font-size: 46px;
+  line-height: 1; color: var(--orange); margin-bottom: 14px;
+}
+.etapes b { display: block; font-family: var(--titre); font-size: 24px; margin-bottom: 6px }
+.etapes span { color: rgba(255, 255, 255, .72); font-size: 15.5px }
+.section-marine .surtitre { color: #ffb37f }
+
+/* ---------------- cool roof ---------------- */
+.coolroof { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px, 6vw, 80px); align-items: center }
+.coolroof-texte p { color: var(--gris) }
+.coolroof-photo { margin: 0 }
+.coolroof-photo img { border-radius: var(--rayon); box-shadow: var(--ombre-forte); aspect-ratio: 4 / 3; object-fit: cover; width: 100% }
+
+/* ---------------- avis + devis ---------------- */
+.avis-devis { display: grid; grid-template-columns: 7fr 5fr; gap: clamp(30px, 5vw, 60px); align-items: start }
+.avis-liste { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px }
+.avis { margin: 0; background: #fff; border-radius: var(--rayon); padding: 22px; box-shadow: var(--ombre) }
+.avis blockquote { margin: 10px 0 14px; color: var(--gris); font-size: 15.5px }
+.avis figcaption { font-size: 14px; color: var(--gris-clair) }
+.etoiles { color: #f5a623; letter-spacing: 2px }
+.etoiles-grandes { font-size: 30px; margin-bottom: 8px }
+.avis-fiche { background: #fff; border-radius: var(--rayon); padding: 30px; box-shadow: var(--ombre) }
+.avis-fiche p { color: var(--gris); max-width: 46ch }
+.zone-courte { margin-top: 34px }
+.zone-courte h3 { display: flex; align-items: center; gap: 8px; font-size: 22px; color: var(--marine) }
+.zone-courte h3 svg { color: var(--orange) }
+.zone-courte p { color: var(--gris); font-size: 15.5px }
+
+.devis-carte { background: var(--marine); color: #fff; border-radius: var(--rayon); padding: 30px; box-shadow: var(--ombre-forte); position: relative; overflow: hidden }
+.devis-carte::after {
+  content: ''; position: absolute; right: -60px; top: -60px; width: 220px; height: 220px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(239, 107, 28, .28), transparent 70%); pointer-events: none;
+}
+.devis h2 { font-size: 32px; margin-bottom: 6px }
+.devis-intro { color: rgba(255, 255, 255, .7); font-size: 15px; margin-bottom: 18px }
+.devis label { display: block; margin-bottom: 12px }
+.devis label span { display: block; font-size: 13px; font-weight: 600; margin-bottom: 5px; color: rgba(255, 255, 255, .8) }
+.devis input, .devis select, .devis textarea {
+  width: 100%; font: inherit; font-size: 16px; color: var(--encre); background: #fff;
+  border: 2px solid transparent; border-radius: 9px; padding: 11px 13px; transition: border-color .2s ease;
+}
+.devis input:focus, .devis select:focus, .devis textarea:focus { outline: none; border-color: var(--orange) }
+.devis textarea { resize: vertical; min-height: 84px }
+.devis .bouton { width: 100%; margin-top: 6px }
+.devis-note { margin: 12px 0 0; padding: 12px 14px; background: rgba(255, 255, 255, .1); border-radius: 9px; font-size: 14.5px }
+.devis-coord { list-style: none; padding: 20px 0 0; margin: 22px 0 0; border-top: 1px solid rgba(255, 255, 255, .14); display: grid; gap: 14px }
+.devis-coord li { display: flex; gap: 12px; align-items: center }
+.devis-coord li > svg { width: 38px; height: 38px; padding: 9px; border-radius: 50%; background: rgba(239, 107, 28, .18); color: var(--orange) }
+.devis-coord a { color: #fff; text-decoration: none }
+.devis-coord b { display: block; font-size: 16px }
+.devis-coord small { color: rgba(255, 255, 255, .6); font-size: 13px }
+
+/* ---------------- FAQ ---------------- */
+.faq { display: grid; gap: 12px }
+.faq details { background: #fff; border: 1px solid var(--trait); border-radius: 12px; transition: box-shadow .2s ease }
+.faq details[open] { box-shadow: var(--ombre) }
+.faq summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 22px; cursor: pointer; list-style: none; font-weight: 700; color: var(--marine); font-size: 17.5px }
+.faq summary::-webkit-details-marker { display: none }
+.faq summary i { position: relative; width: 26px; height: 26px; flex: none; border-radius: 50%; background: var(--orange-pale) }
+.faq summary i::before, .faq summary i::after { content: ''; position: absolute; left: 7px; right: 7px; top: 12px; height: 2px; background: var(--orange); transition: transform .25s ease }
+.faq summary i::after { transform: rotate(90deg) }
+.faq details[open] summary i::after { transform: rotate(0) }
+.faq details p { padding: 0 22px 20px; margin: 0; color: var(--gris) }
+
+/* ---------------- bandeau d'appel ---------------- */
+.appel { background: linear-gradient(110deg, var(--marine-2), var(--marine-3)); color: #fff; padding: 56px 0 }
+.appel-in { display: flex; align-items: center; justify-content: space-between; gap: 26px; flex-wrap: wrap }
+.appel h2 { margin-bottom: 6px }
+.appel p { margin: 0; color: rgba(255, 255, 255, .72) }
+.appel-actions { display: flex; flex-wrap: wrap; gap: 12px }
+
+/* ---------------- pages interieures ---------------- */
+.tete-page { background: var(--marine); color: #fff; padding: 40px 0 64px }
+.tete-page h1 { max-width: 22ch }
+.tete-page p { color: rgba(255, 255, 255, .75); max-width: 62ch; margin: 0; font-size: 18px }
+.tete-page time { display: block; color: #ffb37f; font-weight: 600; margin-bottom: 10px }
+.tete-page a { color: #ffb37f }
+
+.tete-service { background: var(--marine); color: #fff; padding: 30px 0 100px; overflow: hidden }
+.tete-service-in { display: grid; grid-template-columns: 6fr 5fr; gap: clamp(30px, 5vw, 64px); align-items: center }
+.tete-service .surtitre { color: #ffb37f }
+.tete-service .surtitre .ic { background: rgba(239, 107, 28, .2) }
+.chapo { font-size: 19px; color: rgba(255, 255, 255, .8); max-width: 56ch; margin-bottom: 26px }
+.tete-service-photo { margin: 0 }
+.tete-service-photo img { border-radius: var(--rayon); aspect-ratio: 4 / 3; object-fit: cover; width: 100%; box-shadow: 0 24px 60px rgba(0, 0, 0, .35) }
+
+.article-service { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: clamp(30px, 5vw, 64px); padding: 64px 0 90px }
+.texte-riche h2 { font-size: clamp(28px, 3vw, 36px); margin-top: 1.4em; color: var(--marine) }
+.texte-riche section:first-child h2, .texte-riche > h2:first-child { margin-top: 0 }
+.texte-riche p, .texte-riche li { color: #3c4a59 }
+.texte-riche a { color: var(--orange); font-weight: 600 }
+.texte-riche .bouton { color: #fff }
+.galerie { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px }
+.galerie figure { margin: 0; aspect-ratio: 1; overflow: hidden; border-radius: 12px }
+.galerie img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease }
+.galerie figure:hover img { transform: scale(1.06) }
+.cote-collant { position: sticky; top: calc(var(--entete) + 20px); display: grid; gap: 20px }
+.cote-collant .devis h2 { font-size: 28px }
+.cote-services { background: var(--fond); border-radius: var(--rayon); padding: 22px }
+.cote-services h2 { font-size: 22px; color: var(--marine) }
+.cote-services a { display: flex; align-items: center; gap: 12px; padding: 8px 0; text-decoration: none; font-weight: 600; border-top: 1px solid var(--trait) }
+.cote-services a:hover { color: var(--orange) }
+.cote-services .ic { width: 34px; height: 34px; font-size: 16px }
+
+.valeurs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px }
+.valeurs > div { background: #fff; border-radius: var(--rayon); padding: 30px 26px; box-shadow: var(--ombre) }
+.valeurs .ic { margin-bottom: 16px }
+.valeurs h3 { color: var(--marine) }
+.valeurs p { margin: 0; color: var(--gris); font-size: 16px }
+
+.communes { list-style: none; padding: 0; margin: 0 0 1.5em; display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 10px }
+.communes li { display: flex; align-items: center; gap: 8px; padding: 11px 14px; background: var(--fond); border-radius: 10px; font-weight: 600; color: var(--marine) }
+.communes svg { color: var(--orange) }
+
+.contact { display: grid; grid-template-columns: 5fr 6fr; gap: clamp(30px, 5vw, 64px); align-items: start }
+.contact-infos { display: grid; gap: 14px }
+.contact-tel { display: flex; align-items: center; gap: 16px; padding: 22px; border-radius: var(--rayon); background: var(--orange); color: #fff; text-decoration: none; box-shadow: 0 14px 34px rgba(239, 107, 28, .3) }
+.contact-tel > svg { font-size: 34px }
+.contact-tel small { display: block; font-weight: 600; opacity: .85 }
+.contact-tel b { font-family: var(--titre); font-size: 40px; line-height: 1 }
+.contact-ligne { display: flex; align-items: center; gap: 12px; margin: 0; padding: 14px 16px; background: var(--fond); border-radius: 12px; text-decoration: none; font-weight: 600; color: var(--marine) }
+.contact-ligne > svg { color: var(--orange); font-size: 20px }
+.contact-infos > p:last-child { color: var(--gris); margin-top: 6px }
+.contact-infos > p:last-child a { color: var(--orange); font-weight: 600 }
+
+.grille-articles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px }
+.article .tete-page h1 { max-width: none }
+.article-photo { margin: -40px 0 34px; position: relative; z-index: 1 }
+.article-photo img { border-radius: var(--rayon); aspect-ratio: 16 / 9; object-fit: cover; width: 100%; box-shadow: var(--ombre-forte) }
+.article .texte-riche { padding-bottom: 20px }
+.article-service-lie { margin: 30px 0 80px; padding: 24px; border-radius: var(--rayon); background: var(--fond) }
+.article-service-lie a { display: flex; align-items: center; gap: 16px; text-decoration: none }
+.article-service-lie a > span:not(.ic) { flex: 1 }
+.article-service-lie b { display: block; font-size: 19px; color: var(--marine) }
+.article-service-lie span span { color: var(--gris); font-size: 15px }
+.article-service-lie a > svg { color: var(--orange); font-size: 22px }
+
+/* ---------------- pied de page ---------------- */
+.pied { background: var(--marine-2); color: rgba(255, 255, 255, .72); font-size: 15.5px; padding-top: 64px }
+.pied-haut { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.1fr; gap: 40px; padding-bottom: 46px }
+.pied-marque p { margin: 18px 0; max-width: 40ch }
+.pied-titre { font-family: var(--titre); color: #fff; font-size: 21px; margin-bottom: 14px }
+.pied ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 9px }
+.pied a { text-decoration: none }
+.pied a:hover { color: var(--orange) }
+.pied-contact li { display: flex; align-items: center; gap: 10px }
+.pied-contact svg { color: var(--orange) }
+.pied .bouton { margin-top: 20px; color: #fff }
+.reseaux { display: flex; flex-wrap: wrap; gap: 8px }
+.reseaux a { padding: 7px 13px; border: 1px solid rgba(255, 255, 255, .2); border-radius: 999px; font-size: 14px }
+.pied-bas { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; padding: 20px 0 26px; border-top: 1px solid rgba(255, 255, 255, .1); font-size: 14px; color: rgba(255, 255, 255, .5) }
+
+.barre-mobile { display: none }
+
+/* ---------------- apparitions au defilement ---------------- */
+.js .reveler { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s cubic-bezier(.2, .7, .2, 1) }
+.js .reveler.vu { opacity: 1; transform: none }
+
+/* ---------------- responsive ---------------- */
+@media (max-width: 1180px) {
+  .nav > a[href*="blog"], .entete-tel small { display: none }
+  .entete-in { gap: 18px }
+}
+@media (max-width: 1020px) {
+  .nav, .entete-cta, .entete-tel { display: none }
+  .burger { display: grid }
+  .reassurance { grid-template-columns: 1fr 1fr }
+  .reassurance > div:nth-child(3) { border-left: 0 }
+  .reassurance > div:nth-child(n + 3) { border-top: 1px solid var(--trait) }
+  .grille-services, .grille-realisations, .valeurs { grid-template-columns: 1fr 1fr }
+  .carrousel-piste { grid-auto-columns: calc((100% - 20px) / 2.3) }
+  .etapes { grid-template-columns: 1fr 1fr }
+  .avis-devis, .article-service, .contact { grid-template-columns: 1fr }
+  .cote-collant { position: static }
+  .pied-haut { grid-template-columns: 1fr 1fr }
+  .hero-signature { display: none }
+}
+@media (max-width: 760px) {
+  :root { --entete: 68px }
+  body { font-size: 16.5px; padding-bottom: 70px }
+  .marque img { width: 46px }
+  .marque b { font-size: 23px }
+  .marque small { font-size: 9px }
+  .hero { min-height: 0 }
+  .hero-fond { width: 100% }
+  .hero-fond img { object-position: 50% 15% }
+  .hero::before { background: linear-gradient(180deg, rgba(10, 27, 46, .35) 0%, rgba(10, 27, 46, .88) 50%, rgba(10, 27, 46, .97) 100%) }
+  .hero-in { padding: 60px 0 100px }
+  .hero-liste { font-size: 16px }
+  .hero-actions .bouton { flex: 1 1 100% }
+  .reassurance { grid-template-columns: 1fr; margin-top: -50px }
+  .reassurance > div { border-left: 0 !important; padding: 16px 18px }
+  .reassurance > div + div { border-top: 1px solid var(--trait) }
+  .grille-services, .grille-realisations, .valeurs, .grille-articles, .etapes { grid-template-columns: 1fr }
+  .presentation, .coolroof, .tete-service-in { grid-template-columns: 1fr }
+  .presentation-photo figcaption { right: 12px }
+  .coolroof-photo { order: -1 }
+  .carrousel-piste { grid-auto-columns: 78% }
+  .carrousel-fl { display: none }
+  .tete-service { padding-bottom: 80px }
+  .appel-actions, .appel-actions .bouton { width: 100% }
+  .pied-haut { grid-template-columns: 1fr }
+  .devis-carte { padding: 24px 20px }
+  .barre-mobile {
+    display: grid; grid-template-columns: 1fr 1fr; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+    background: var(--marine-2); box-shadow: 0 -8px 24px rgba(0, 0, 0, .18); padding-bottom: env(safe-area-inset-bottom);
+  }
+  .barre-mobile a { display: flex; align-items: center; justify-content: center; gap: 9px; min-height: 60px; color: #fff; text-decoration: none; font-weight: 700 }
+  .barre-mobile svg { font-size: 20px }
+  .barre-mobile .barre-devis { background: var(--orange) }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important }
+  .hero-anim { opacity: 1; transform: none }
+  .js .reveler { opacity: 1; transform: none }
+}

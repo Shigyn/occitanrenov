@@ -1,0 +1,4 @@
+# Apercu : le site actuel est toujours en ligne, celui-ci ne doit pas
+# etre indexe pour ne pas lui faire concurrence.
+User-agent: *
+Disallow: /
