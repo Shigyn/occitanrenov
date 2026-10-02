@@ -281,8 +281,8 @@ const blocAvis = (r) => AVIS.liste.length
       <a class="bouton bouton-contour" href="${E.fiche}" target="_blank" rel="noopener">Lire les avis Google ${ICONES.fleche}</a>
     </div>`;
 
-const noteAvis = AVIS.note ? `${String(AVIS.note).replace('.', ',')}/5 sur Google` : 'Avis clients Google';
-const sousNoteAvis = AVIS.nombre ? `Plus de ${AVIS.nombre} avis vérifiés` : 'Lisez-les sur notre fiche';
+const noteAvis = AVIS.note ? `${String(AVIS.note).replace('.', ',')}/5 sur Google` : (AVIS.nombre ? `${AVIS.nombre} avis clients Google` : 'Avis clients Google');
+const sousNoteAvis = AVIS.note && AVIS.nombre ? `${AVIS.nombre} avis clients` : 'Lisez-les sur notre fiche';
 
 const reassurance = () => `
 <div class="reassurance">

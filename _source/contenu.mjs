@@ -36,7 +36,7 @@ export const ENTREPRISE = {
    avis reels, mot pour mot. */
 export const AVIS = {
   note: null,       // ex. 4.9
-  nombre: null,     // ex. 47
+  nombre: 49,      // releve sur sa fiche le 2026-10-02
   liste: [],        // [{ nom, date, texte }]
 };
 
