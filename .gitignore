@@ -1,2 +1,4 @@
 node_modules/
 .DS_Store
+# Notes internes LocWeb : jamais sur le depot public.
+PLAN.md
